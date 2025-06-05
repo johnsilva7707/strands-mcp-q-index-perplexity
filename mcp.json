@@ -4,7 +4,7 @@
       "command": "uv",
       "args": [
         "--directory",
-        "REPLACE WITH ABSOLUTE PATH TO THE DIRECTORY/mcp",
+        "REPLACE WITH ABSOLUTE PATH TO THE DIRECTORY/amazon-q-index-mcp",
         "run",
         "mcp_server.py"
       ]
