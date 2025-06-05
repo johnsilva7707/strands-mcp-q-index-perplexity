@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "AnyCompany": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "REPLACE WITH ABSOLUTE PATH TO THE DIRECTORY/mcp",
+        "run",
+        "mcp_server.py"
+      ]
+    }
+  }
+}

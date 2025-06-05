@@ -1,0 +1,10 @@
+{
+  "TVMOidcIssuerStack": {
+    "AudienceOutput": "us-east-1-09876543210-tvm",
+    "IssuerUrlOutput": "https://blahblah.execute-api.us-east-1.amazonaws.com/prod/",
+    "QBizAssumeRoleARN": "arn:aws:iam::09876543210:role/tvm-qbiz-custom-oidc-role",
+    "OidcApiEndpoint4C31BB7B": "https://blahblah.execute-api.us-east-1.amazonaws.com/prod/",
+    "QbizTVMClientID": "oidc-tvm-09876543210",
+    "QbizTVMClientSecret": "HIGHLYSECRET"
+  }
+}
