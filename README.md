@@ -99,4 +99,45 @@ What immediate action did AnyCompany take to improve the Voice receptionist serv
 During which hours did Michael Chen notice the most significant delays?
 ```
 
+## Using just MCP Host instead of strands agents
+
+### Set up Perplexity ASK MCP Server
+
+Refer [Integrating MCP with Perplexity's Sonar API](https://docs.perplexity.ai/guides/mcp-server) and [Perplexity Ask MCP Server](https://github.com/ppl-ai/modelcontextprotocol/tree/main)
+
+### Sample prompt for MCP Hosts (Claude Desktop, Amazon Q CLI etc.,)
+
+Sample prompt. Feel free to tweak according to your needs.
+
+```text
+You are a helpful AI assistant who answers question correctly and accurately about a AcmeCompany's IT tickets and also rely on Perplexity MCP Server for general knowledge.
+You answer in the format as follows:
+<response>
+    <datasource> 
+    </datasource>
+    <perplexityknowledge> 
+    </perplexityknowledge>
+</response>
+
+** For datasource section: **
+    Use tool answer_question from AnyCompany MCP Server.
+    Do not makeup answers and only answer from the provided knowledge. 
+    If the query doesn't has any Info about IT Tickets, you must acknowledge that. 
+** For  perplexityknowledge section: **
+    Provide info by obtaining the results from perplexity-ask MCP using it's preplexity_ask tool for addressing the query.
+
+Here is the query:
+During which hours did Michael Chen notice the most significant delays?
+```
+
+### Using Claude Desktop
+
+![image](https://github.com/user-attachments/assets/a4899220-a7f1-4fcc-b47a-29b8eaf34ea9)
+
+### Using Q Dev CLI
+
+![image](https://github.com/user-attachments/assets/b8a147a3-8052-4b64-b8f8-064bf91c8601)
+
+![image](https://github.com/user-attachments/assets/4df4189c-c3ee-4b45-adb8-5437ec219151)
+
 
