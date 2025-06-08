@@ -12,10 +12,10 @@ async def main():
         tools = await client.list_tools()
         print(f"Available tools: {[t.name for t in tools]}")
         
-        # Test search_q_business tool
-        print("\nTesting search_q_business...")
-        result = await client.call_tool("search_q_business", {"query": "keyboard issues"})
-        print(f"Search results: {result[:100]}...")  # Show first 100 chars
+        # # Test search_q_business tool
+        # print("\nTesting search_q_business...")
+        # result = await client.call_tool("search_q_business", {"query": "keyboard issues"})
+        # print(f"Search results: {result[:100]}...")  # Show first 100 chars
         
         # Test answer_question tool
         print("\nTesting answer_question...")
