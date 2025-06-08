@@ -2,10 +2,16 @@ import json
 from pathlib import Path
 
 from fastmcp import FastMCP
-from utils.constants import (BASE_MODEL_ARN, DEFAULT_EMAIL, DEFAULT_QUERY,
-                             INFERENCE_PROFILE_NAME, INFERENCE_PROFILE_TAGS,
-                             MAX_SEARCH_RESULTS, REGION, SYSTEM_PROMPT,
-                             TVM_VALUES_FILE)
+from utils.constants import (
+    BASE_MODEL_ARN,
+    DEFAULT_EMAIL,
+    INFERENCE_PROFILE_NAME,
+    INFERENCE_PROFILE_TAGS,
+    MAX_SEARCH_RESULTS,
+    REGION,
+    INDEX_SYSTEM_PROMPT,
+    TVM_VALUES_FILE,
+)
 from utils.tvm_client import TVMClient
 
 # Create FastMCP server
@@ -40,7 +46,6 @@ def extract_context_from_search_results(search_results):
         full_context += chunk["content"] + "\n"
 
     return full_context
-
 
 
 # MCP Tools
@@ -86,41 +91,10 @@ async def answer_question(question: str) -> str:
 
     # Query model asynchronously
     response = await async_bedrock.query_model(
-        profile_arn, question, SYSTEM_PROMPT, context
+        profile_arn, question, INDEX_SYSTEM_PROMPT, context
     )
 
     return response
-
-
-@server.tool(description="Get search results from Q Business")
-async def search_q_business(query: str, max_results: int = MAX_SEARCH_RESULTS) -> str:
-    """
-    Search Q Business for relevant content.
-
-    Args:
-        query: The search query
-        max_results: Maximum number of results to return
-
-    Returns:
-        str: The search results as a JSON string
-    """
-    from utils.async_utils import AsyncQBusinessClient
-
-    # Initialize async clients
-    async_qbiz = AsyncQBusinessClient(region=REGION)
-    async_qbiz_app = AsyncQBusinessClient(
-        region=REGION, credentials=get_credentials(DEFAULT_EMAIL)
-    )
-
-    # Get app and retriever IDs asynchronously
-    app_id, retriever_id = await async_qbiz.get_app_and_retriever_ids()
-
-    # Search for relevant content asynchronously
-    results = await async_qbiz_app.call_search_relevant_content(
-        app_id, retriever_id, query, max_results
-    )
-
-    return json.dumps(results, indent=2)
 
 
 # Run the server

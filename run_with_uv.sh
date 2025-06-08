@@ -12,8 +12,7 @@ source .uv/bin/activate
 
 # Install required packages
 echo "Installing required packages..."
-uv pip install boto3 "mcp[cli]" requests fastmcp httpx python-dotenv
+uv pip install boto3 "mcp[cli]" requests fastmcp httpx python-dotenv strands-agents strands-agents-tools
 
-# Run the MCP server
-echo "Starting MCP server..."
-python mcp_server.py
+# Run strands agent
+uv run main.py

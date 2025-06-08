@@ -6,7 +6,7 @@ This is an MCP (Model Context Provider) server for Acme Company that uses Amazon
 
 ### Upload Data to S3
 
-Upload the files present in `synthetic_data` directory to S3 and use this as data source for Q Business APP you create as part of instructions in TVM Set up.
+Upload the files present in `synthetic_data` and `ticket_pdfs` directory to S3 and use this as data source for Q Business APP you create as part of instructions in TVM Set up.
 
 ### (Token Vending Machine) TVM Set up
 
