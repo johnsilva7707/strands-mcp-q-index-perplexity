@@ -2,8 +2,7 @@
 
 Strands Agents using MCP Tools powered by Amazon Q Business Cross App index and Perplexity Ask
 
-![image](https://github.com/user-attachments/assets/b280c5a8-0cca-4a65-bda8-bc783e32d9b3)
-
+![image](https://github.com/user-attachments/assets/3e9d9ec5-178d-4778-80be-0e9699e726ca)
 
 ## Set up
 
