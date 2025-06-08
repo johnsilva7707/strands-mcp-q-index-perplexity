@@ -21,3 +21,4 @@ Download and install [Claude Desktop](https://claude.ai/download)  for your oper
 Complete the MCP Host setup by following the [For Claude Desktop Users](https://modelcontextprotocol.io/quickstart/user) guide.
 
 Turn off Web Search for grounded responses to the data synced.
+![image](https://github.com/user-attachments/assets/856775e8-3095-4741-9645-dd802b0176e2)
