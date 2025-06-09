@@ -1,6 +1,7 @@
-# Strands Agents using MCPs for Amazon Q Index & Perplexity 
+# Agentic RAG for JIRA Case Management using Strands Agents with MCPs Clients for Amazon Q Index & Perplexity
+ 
 
-Strands Agents using MCP Tools powered by Amazon Q Business Cross App index and Perplexity Ask
+This solution uses Strands Agents with MCP Tools powered by Amazon Q Business Cross App index and Perplexity Ask
 
 ![image](https://github.com/user-attachments/assets/3e9d9ec5-178d-4778-80be-0e9699e726ca)
 
