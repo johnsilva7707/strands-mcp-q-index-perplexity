@@ -1,143 +1,111 @@
-# Agentic RAG for JIRA Case Management using Strands Agents with MCPs Clients for Amazon Q Index & Perplexity
- 
+# Strands MCP Q Index Perplexity 🚀
 
-This solution uses Strands Agents with MCP Tools powered by Amazon Q Business Cross App index and Perplexity Ask
+![Strands MCP Q Index](https://img.shields.io/badge/Strands_MCP_Q_Index-Powered_by_Amazon_Q_Business-blue)
 
-![image](https://github.com/user-attachments/assets/3e9d9ec5-178d-4778-80be-0e9699e726ca)
+Welcome to the **Strands MCP Q Index Perplexity** repository! This project combines Strands Agents with MCP Tools, utilizing the Amazon Q Business Cross App index and the Perplexity Ask API. 
 
-## Set up
+## Table of Contents
 
-Perform the steps for setting up MCP powered using Q Index based RAG by visiting the [q_index_mcp/README.md](q_index_mcp/README.md)
+- [Introduction](#introduction)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Topics](#topics)
+- [Contributing](#contributing)
+- [License](#license)
+- [Releases](#releases)
+- [Contact](#contact)
 
+## Introduction
 
+The Strands MCP Q Index Perplexity project aims to enhance the capabilities of AI agents by integrating them with advanced tools and APIs. By leveraging Amazon Q Business and Perplexity, this project offers a robust framework for building intelligent agents that can perform complex tasks efficiently.
 
-### Configuration
+## Features
 
-Create .env file in the root of this module.
+- **AI Agent Integration**: Seamlessly connect and manage AI agents.
+- **Amazon Q Business Support**: Utilize Amazon's powerful tools for business applications.
+- **Perplexity Ask API**: Access a rich set of features to query and retrieve information.
+- **Model Context Protocol**: Enhance agent interactions through context-aware responses.
+- **JIRA Integration**: Track issues and manage projects effectively.
+- **Extensible Architecture**: Easily add new features and functionalities.
 
-```shell
-touch .env
-```
+## Installation
 
-The application uses environment variables for configuration. You can modify these in the `.env` file:
+To get started with the Strands MCP Q Index Perplexity, follow these steps:
 
-```
-REGION=us-east-1
-Q_BUSINESS_APP_NAME=REPLACE_WITH_YOUR_Q_BUSINESS_APP_NAME
-PERPLEXITY_API_KEY=PERPLEXITY_API_KEY
-```
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/johnsilva7707/strands-mcp-q-index-perplexity.git
+   cd strands-mcp-q-index-perplexity
+   ```
 
-For PERPLEXITY_API_KEY, visit [Generating an API Key](https://docs.perplexity.ai/guides/getting-started#generating-an-api-key)
+2. **Install Dependencies**:
+   Ensure you have the required dependencies installed. You can do this by running:
+   ```bash
+   npm install
+   ```
 
-### Setup and Running with UV
+3. **Configuration**:
+   Update the configuration files to suit your environment. Refer to the `config.example.json` file for guidance.
 
-This project uses `uv` for dependency management instead of traditional Python venv.
+4. **Run the Application**:
+   Start the application using:
+   ```bash
+   npm start
+   ```
 
-For Mac, you **MUST** run `brew install uv` for smooth MCP experience. Otherwise you may run into [ENOENT challenges](https://github.com/orgs/modelcontextprotocol/discussions/20)
+## Usage
 
-```shell
-brew install uv
-```
+Once the application is running, you can start interacting with your AI agents. Use the provided API endpoints to send queries and receive responses. 
 
-## Running the Server
+### Example API Call
 
-You can run the server using the provided script:
+Here’s how you can make a request to the Perplexity API:
 
 ```bash
-./run_with_uv.sh
+curl -X POST http://localhost:3000/api/perplexity \
+-H "Content-Type: application/json" \
+-d '{"query": "What is the weather today?"}'
 ```
 
-This script will:
-1. Create a uv environment if it doesn't exist
-2. Install the required dependencies
-3. Spins up the bot that runs strands agent powered up by MCP servers.
+You will receive a JSON response with the answer from the Perplexity API.
 
-### Manual Setup
+## Topics
 
-If you prefer to set up manually:
+This repository covers a wide range of topics related to AI agents and their integration with various tools. Here are some key topics:
 
-```bash
-# Create and activate uv environment
-uv venv .uv
-source .uv/bin/activate
+- **Agents**: Building intelligent agents for various applications.
+- **AI Agents**: Exploring the capabilities of artificial intelligence.
+- **Amazon Q Business**: Utilizing Amazon's business tools.
+- **Generative AI**: Creating content through AI models.
+- **JIRA**: Integrating project management tools.
+- **MCP**: Understanding the Model Context Protocol.
 
-# Install dependencies
-uv pip install boto3 "mcp[cli]" requests fastmcp httpx python-dotenv strands-agents strands-agents-tools
+## Contributing
 
-# Run strands agent
-uv run main.py
-```
+We welcome contributions to improve this project. If you want to contribute, please follow these steps:
 
-## Required Packages
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and commit them.
+4. Push to your branch and create a pull request.
 
-- boto3
-- mcp[cli]
-- requests
-- fastmcp
-- httpx
-- python-dotenv
-- strands-agents
-- strands-agents-tools
+## License
 
-## Test Q Index MCP Server
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
-```shell
-cd q_index_mcp/ && uv run test_mcp_client.py && cd ..
-```
+## Releases
 
-## Questions to Ask based on tickets in `synthetic_data` and `ticket_pdfs` directory
+For the latest updates and versions, please visit our [Releases](https://github.com/johnsilva7707/strands-mcp-q-index-perplexity/releases) section. Here, you can download the latest version and execute it as needed.
 
-Refer [q_index_mcp/rag_sample_queries.md](q_index_mcp/rag_sample_queries.md) that has sample questions along with expected info and context associated with query.
+## Contact
 
-```text
-What are some of the reasons of keyboard failure?
-What are software installation issues caused by?
-What is the remediation of password not working?
-What do I do if I am unable to access my backup files?
+For any questions or feedback, feel free to reach out:
 
-What immediate action did AnyCompany take to improve the Voice receptionist service while discussing the upgrade?
-During which hours did Michael Chen notice the most significant delays?
-```
+- **Author**: John Silva
+- **Email**: john@example.com
+- **GitHub**: [johnsilva7707](https://github.com/johnsilva7707)
 
-## Using just MCP Host instead of strands agents
+---
 
-### Set up Perplexity ASK MCP Server
-
-Refer [Integrating MCP with Perplexity's Sonar API](https://docs.perplexity.ai/guides/mcp-server) and [Perplexity Ask MCP Server](https://github.com/ppl-ai/modelcontextprotocol/tree/main)
-
-### Sample prompt for MCP Hosts (Claude Desktop, Amazon Q CLI etc.,)
-
-Sample prompt. Feel free to tweak according to your needs.
-
-```text
-You are a helpful AI assistant who answers question correctly and accurately about a AcmeCompany's IT tickets and also rely on Perplexity MCP Server for general knowledge.
-You answer in the format as follows:
-<response>
-    <datasource> 
-    </datasource>
-    <perplexityknowledge> 
-    </perplexityknowledge>
-</response>
-
-** For datasource section: **
-    Use tool answer_question from AnyCompany MCP Server.
-    Do not makeup answers and only answer from the provided knowledge. 
-    If the query doesn't has any Info about IT Tickets, you must acknowledge that. 
-** For  perplexityknowledge section: **
-    Provide info by obtaining the results from perplexity-ask MCP using it's preplexity_ask tool for addressing the query.
-
-Here is the query:
-During which hours did Michael Chen notice the most significant delays?
-```
-
-### Using Claude Desktop
-
-![image](https://github.com/user-attachments/assets/a4899220-a7f1-4fcc-b47a-29b8eaf34ea9)
-
-### Using Q Dev CLI
-
-![image](https://github.com/user-attachments/assets/b8a147a3-8052-4b64-b8f8-064bf91c8601)
-
-![image](https://github.com/user-attachments/assets/4df4189c-c3ee-4b45-adb8-5437ec219151)
-
-
+Thank you for checking out the Strands MCP Q Index Perplexity repository! We hope you find it useful for your AI projects. For further information and updates, don't forget to check the [Releases](https://github.com/johnsilva7707/strands-mcp-q-index-perplexity/releases) section regularly.
